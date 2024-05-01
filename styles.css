@@ -1,13 +1,13 @@
 *, *::before, *::after{
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 700;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
 }
 
 body{
     padding: 0;
     margin: 0;
-   background-color: aquamarine;
+   background-color: rgb(205, 205, 205)
 }
 
 .calculator-grid {
@@ -17,18 +17,21 @@ body{
     min-height: 95vh;
     grid-template-columns: repeat(4,80px);
     grid-template-rows: minmax(100px, auto) repeat(5,80px);
+   
 }
 
 .calculator-grid > button {
    cursor: pointer;
    font-size: 2rem;
-   border: 1px solid white;
+   color: white;
+   border: 1px solid rgb(54, 54, 54);
    outline: none;
-   background-color: rgba(255, 255, 255, .75);
+   background-color: rgba(54, 54, 54, 0.75);
+   border-radius: 2px;
 }
 
 .calculator-grid >button:hover{
-    background-color:  rgba(255, 255, 255, .9);;
+    background-color:  rgba(54, 54, 54, 0.9);;
 }
 
 .span-two{
@@ -60,11 +63,12 @@ body{
 .footer{
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .footer footer{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 200px;
     font-size: 15px;
+    color: rgb(54, 54, 54);
 }
