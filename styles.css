@@ -14,9 +14,9 @@ body{
     display: grid;
     justify-content: center;
     align-content: center;
-    min-height: 100vh;
-    grid-template-columns: repeat(4,100px);
-    grid-template-rows: minmax(120px, auto) repeat(5,100px);
+    min-height: 95vh;
+    grid-template-columns: repeat(4,80px);
+    grid-template-rows: minmax(100px, auto) repeat(5,80px);
 }
 
 .calculator-grid > button {
@@ -55,4 +55,16 @@ body{
 .output .current-operand{
     color: rgb(255, 255, 255);
     font-size: 2.5rem;
- }
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.footer footer{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 200px;
+    font-size: 15px;
+}
