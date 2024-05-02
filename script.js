@@ -18,6 +18,13 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString().slice(0,-1);
  }
  
+ appendNumber(number)
+ {
+    this.currentOperand = this.currentOperand.toString() + number.toString();
+ }
+
+
+
 }
 const numberButtons=document.querySelectorAll('[data-number]');
 const operationButtons=document.querySelectorAll('[data-operation]');
@@ -29,6 +36,11 @@ const currentOperandTextElement=document.querySelector('[data-current-operand]')
 
 const calculator=new Calculator(previousOperandTextElement,currentOperandTextElement);
 
+numberButtons.forEach(button=>{
+    button.addEventListener('click',()=>{
+    calculator.appendNumber(button.innerText);
+    })
+});
 
 clearButton.addEventListener('click',button=>{
     calculator.clear();
@@ -36,4 +48,4 @@ clearButton.addEventListener('click',button=>{
 
 deleteButton.addEventListener('click', button=>{
     calculator.delete();
-})
+});
