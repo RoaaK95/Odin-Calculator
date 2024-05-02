@@ -42,7 +42,7 @@ operate()
   let prev = parseFloat(this.previousOperand);
   let current = parseFloat(this.currentOperand);
   if(isNaN(prev) || isNaN(current)) return;
-
+  if(current===0) {this.displaySnarkyMessage()};
   switch(this.operation)
   {
     case'+':
@@ -66,6 +66,11 @@ operate()
   this.operation = undefined;
 }
 
+displaySnarkyMessage()
+{ 
+   alert("You cannot divide a number by zero");
+   this.clear();
+}
 getDisplayNumber(number)
 {
     const stringNumber=number.toString();
