@@ -13,6 +13,10 @@ class Calculator {
     this.operation= undefined;
  }
 
+ delete()
+ {
+    this.currentOperand = this.currentOperand.toString().slice(0,-1);
+ }
  
 }
 const numberButtons=document.querySelectorAll('[data-number]');
@@ -28,4 +32,8 @@ const calculator=new Calculator(previousOperandTextElement,currentOperandTextEle
 
 clearButton.addEventListener('click',button=>{
     calculator.clear();
+});
+
+deleteButton.addEventListener('click', button=>{
+    calculator.delete();
 })
