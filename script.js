@@ -61,7 +61,7 @@ operate()
         return
   }
   
-  this.currentOperand = computation;
+  this.currentOperand = computation.toFixed(2);
   this.previousOperand = '';
   this.operation = undefined;
 }
