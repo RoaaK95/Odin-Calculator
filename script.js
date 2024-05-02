@@ -23,7 +23,17 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString() + number.toString();
  }
 
+selectOperation(operation)
+{
+    if(this.currentOperand ==='') return
+    if(this.previousOperand !=='') {
+        //call operate function
+    }
 
+    this.operation = operation;
+    this.previousOperand = this.currentOperand;
+    this.currentOperand = '';
+}
 
 }
 const numberButtons=document.querySelectorAll('[data-number]');
@@ -39,6 +49,12 @@ const calculator=new Calculator(previousOperandTextElement,currentOperandTextEle
 numberButtons.forEach(button=>{
     button.addEventListener('click',()=>{
     calculator.appendNumber(button.innerText);
+    })
+});
+
+operationButtons.forEach(button =>{
+    button.addEventListener('click',()=>{
+    calculator.operation(button.innerText);
     })
 });
 
