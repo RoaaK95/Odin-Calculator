@@ -8,10 +8,12 @@ class Calculator {
   
  clear()
  {
-    this.currentOperand = '' ;
-    this.previousOperand= '' ;
+    this.currentOperand = '';
+    this.previousOperand= '';
     this.operation= undefined;
  }
+
+ 
 }
 const numberButtons=document.querySelectorAll('[data-number]');
 const operationButtons=document.querySelectorAll('[data-operation]');
@@ -23,4 +25,7 @@ const currentOperandTextElement=document.querySelector('[data-current-operand]')
 
 const calculator=new Calculator(previousOperandTextElement,currentOperandTextElement);
 
- 
+
+clearButton.addEventListener('click',button=>{
+    calculator.clear();
+})
