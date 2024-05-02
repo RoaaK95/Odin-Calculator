@@ -27,13 +27,44 @@ selectOperation(operation)
 {
     if(this.currentOperand ==='') return
     if(this.previousOperand !=='') {
-        //call operate function
+       this.operate();
     }
 
     this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = '';
 }
+
+operate()
+{
+  let computation;
+  let prev = parseFloat(this.previousOperand);
+  let current = parseFloat(this.currentOperand);
+  if(isNaN(prev) || isNaN(current)) return;
+
+  switch(this.operation)
+  {
+    case'+':
+       computation = prev + current ;
+       break;
+    case'-':
+       computation = prev - current ;
+       break;
+    case'÷':
+       computation = prev / current ;
+       break;
+    case'×':
+       computation = prev * current ;
+       break;
+    default:
+        return
+  }
+  
+  this.currentOperand = computation;
+  this.previousOperand = '';
+  this.operation = undefined;
+}
+
 
 }
 const numberButtons=document.querySelectorAll('[data-number]');
@@ -54,8 +85,12 @@ numberButtons.forEach(button=>{
 
 operationButtons.forEach(button =>{
     button.addEventListener('click',()=>{
-    calculator.operation(button.innerText);
+    calculator.selectOperation(button.innerText);
     })
+});
+
+equalsButton.addEventListener('click',button=>{
+    calculator.operate();
 });
 
 clearButton.addEventListener('click',button=>{
