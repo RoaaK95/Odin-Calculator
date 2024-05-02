@@ -65,7 +65,44 @@ operate()
   this.operation = undefined;
 }
 
+getDisplayNumber(number)
+{
+    const stringNumber=number.toString();
+    const integerDigits=parseFloat(stringNumber.split('.')[0]);
+    const decimalDigits=stringNumber.split('.')[1];
+    let integerDisplay;
 
+    if(isNaN(integerDigits))
+    {
+        integerDisplay='';
+    }
+    else
+    {
+        integerDisplay=integerDigits.toLocaleString('en' , {maximumFractionDigits:0});
+    }
+
+    if(decimalDigits != null)
+    {
+        return `${integerDisplay}.${decimalDigits}`;
+    }
+    else
+    {
+        return integerDisplay;
+    }
+}
+updateDisplay()
+{
+  this.currentOperandTextElement.innerText= this.getDisplayNumber(this.currentOperand);
+  if(this.operation != null)
+   {
+    this.previousOperandTextElement.innerText=`${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+   }
+  else
+  {
+     this.previousOperandTextElement.innerText='';
+  }
+    
+  }
 }
 const numberButtons=document.querySelectorAll('[data-number]');
 const operationButtons=document.querySelectorAll('[data-operation]');
@@ -80,23 +117,28 @@ const calculator=new Calculator(previousOperandTextElement,currentOperandTextEle
 numberButtons.forEach(button=>{
     button.addEventListener('click',()=>{
     calculator.appendNumber(button.innerText);
+    calculator.updateDisplay();
     })
 });
 
 operationButtons.forEach(button =>{
     button.addEventListener('click',()=>{
     calculator.selectOperation(button.innerText);
+    calculator.updateDisplay();
     })
 });
 
 equalsButton.addEventListener('click',button=>{
     calculator.operate();
+    calculator.updateDisplay();
 });
 
 clearButton.addEventListener('click',button=>{
     calculator.clear();
+    calculator.updateDisplay();
 });
 
 deleteButton.addEventListener('click', button=>{
     calculator.delete();
+    calculator.updateDisplay();
 });
