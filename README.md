@@ -8,5 +8,6 @@ This project is a functional calculator, created for the Odin foundations path.
 - CSS
 - JavaScript
 
-## Screenshots  
+## Screenshots
+  
 ![Calculator](https://github.com/user-attachments/assets/bb4b897a-7009-42fd-8b06-bac583807ffb)
